@@ -28,7 +28,7 @@ function displaySearchResults(searchResults) {
     const isbn = book.isbn ? book.isbn : '';
 
     const resultElement = document.createElement('div');
-    resultElement.innerHTML = `<p>Title: ${title}</p><p>Author(s): ${authors}</p><p>ISBN: ${isbn}</p><br>`;
+    resultElement.innerHTML = `<div class="card"><p>  Title: ${title}</p><p>  Author(s): ${authors}</p><p>  ISBN: ${isbn}</p></div><br>`;
     searchResultsElement.appendChild(resultElement);
   });
 }

@@ -1,66 +1,112 @@
+/* Global styles */
 body {
-        font-family: Arial, sans-serif;
-        background-color: #F0F0F0;
-      }
-      form {
-        width: 500px;
-        margin: 0 auto;
-        background-color: #FFF;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      }
-      label {
-        display: block;
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-      input[type=text] {
-        width: 100%;
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #CCC;
-        box-sizing: border-box;
-        margin-bottom: 20px;
-        font-size: 16px;
-      }
-      input[type=submit] {
-        background-color: #4CAF50;
-        color: #FFF;
-        padding: 10px 20px;
-        border-radius: 5px;
-        border: none;
-        font-size: 16px;
-        cursor: pointer;
-      }
-      input[type=submit]:hover {
-        background-color: #3E8E41;
-      }
-      #search-results {
-        width: 500px;
-        margin: 0 auto;
-        background-color: #FFF;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      }
-      #search-results ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-      #search-results li {
-        margin-bottom: 10px;
-      }
-      #search-results img {
-        float: left;
-        margin-right: 10px;
-      }
-      #search-results h3 {
-        margin-top: 0;
-        font-size: 24px;
-      }
-      #search-results p {
-        margin: 0;
-        font-size: 16px;
-      }
+  font-family: 'Proxima Nova', sans-serif;
+  background-color: #f5e6fa;
+  color: #7b2cbf;
+}
+
+/* Form styles */
+#book-search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+label {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#searchbar {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  background-color: #e6d2f5;
+  outline: none;
+}
+
+#searchbar:focus {
+  background-color: #d7bde2;
+}
+
+#searchButton {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #9b59b6;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#searchButton:hover {
+  background-color: #8e44ad;
+}
+
+/* Search results styles */
+#search-results {
+  margin-top: 50px;
+}
+
+#head1{
+  width: 300px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.book {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #e6d2f5;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px #ccc;
+}
+
+.book-image {
+  margin-right: 20px;
+}
+
+.book-image img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.book-details {
+  flex: 1;
+}
+
+.book-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.book-author {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #7b2cbf;
+}
+
+.book-description {
+  font-size: 14px;
+  color: #7b2cbf;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: #d7bde2;
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  padding: 2px 16px;
+}
