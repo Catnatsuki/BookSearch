@@ -2,8 +2,10 @@
 const searchingButton = document.getElementById('book-search-form');
 searchingButton.addEventListener('submit', (event) => {
   event.preventDefault()
-  const searchQuery = document.getElementById('search-input').value;
-  axios.post('http://localhost:3000/search', { query: 'John Green' }, { timeout: 10000 })
+  // const searchQuery = document.getElementById('searchbar').value;
+  const searchQuery = document.getElementById('searchbar').value;
+  console.log("Query extracted: ",searchQuery);
+  axios.post('http://localhost:3000/search', { searchQuery: searchQuery }, { timeout: 10000 })
     .then(response => {
       // Handle the response from the server
       const searchResults = response.data;
@@ -19,10 +21,6 @@ searchingButton.addEventListener('submit', (event) => {
 function displaySearchResults(searchResults) {
   const searchResultsElement = document.getElementById('search-results');
   searchResultsElement.innerHTML = '';
-  // if (!searchResults.items || searchResults.items.length === 0) {
-  //   searchResultsElement.innerHTML = '<p>No results found</p>';
-  //   return;
-  // }
   const topResults = searchResults;
   topResults.forEach(book => {
     const title = book.title;
@@ -30,16 +28,7 @@ function displaySearchResults(searchResults) {
     const isbn = book.isbn ? book.isbn : '';
 
     const resultElement = document.createElement('div');
-    resultElement.innerHTML = `<p>Title: ${title}</p><p>Author(s): ${authors}</p><p>ISBN: ${isbn}</p>`;
+    resultElement.innerHTML = `<p>Title: ${title}</p><p>Author(s): ${authors}</p><p>ISBN: ${isbn}</p><br>`;
     searchResultsElement.appendChild(resultElement);
   });
-  // searchResults.items.forEach(item => {
-  //   const title = item.title;
-  //   const authors = item.authors ? item.volumeInfo.authorss.join(', ') : '';
-  //   const isbn = item.isbn;
-
-  //   const resultElement = document.createElement('div');
-  //   resultElement.innerHTML = `<p>Title: ${title}</p><p>Author(s): ${authors}</p><p>ISBN: ${isbn}</p>`;
-  //   searchResultsElement.appendChild(resultElement);
-  // });
 }

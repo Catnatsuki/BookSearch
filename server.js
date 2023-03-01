@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import express from 'express';
 import axios from 'axios';
+import bodyParser from 'body-parser';
 
 const app = express();
 const port = 3000;
@@ -8,13 +9,13 @@ const apiKey = 'AIzaSyA-9kFreVXAHai_9YpIy1rR5Wcrei6MlZA';
 
 
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 app.use(express.static('C:/Users/rgkul/Downloads/InterviewProject'))
 
 app.post('/search', (req, res) => {
-  var query = req.body.q;
-  console.log("Query received: ", query);
   const searchQuery = req.body.searchQuery;
+  console.log(req.body.searchQuery)
   axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&key=${apiKey}`)
     .then(response => {
       const books = response.data.items.map(item => {
